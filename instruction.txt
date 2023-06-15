@@ -1,0 +1,15 @@
+#forgot password Process
+1. User clicks on forgot password
+2. create a reset token(string) and save in our database
+3. send rest token to user email in the form of a link
+4. when user clicks the link , compare the rest token in the link with that saved in 
+the database
+5. if they match, change reset the user's password
+
+
+
+#forgot password steps
+1. create forgot pass route,
+2. create token model,
+3. create Email sender function,
+4. Create controller function
