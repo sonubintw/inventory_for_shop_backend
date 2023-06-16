@@ -61,7 +61,7 @@ router.post("/register", async (req, res, next) => {
         path: "/",//by default its "/" no need to mention but still
         httpOnly: true,
         expires: new Date(Date.now() + 1000 * 86400),//1 day
-        // sameSite: "none",//frontEnd and backend can have different url
+        sameSite: "none",//frontEnd and backend can have different url
         secure: true
 
     })
@@ -116,6 +116,7 @@ router.post("/login", async (req, res, next) => {
         path: "/",
         httpOnly: true,
         secure: true,
+        sameSite: "none",
         expires: new Date(Date.now() + 1000 * 86400),//1 day
     })
 
