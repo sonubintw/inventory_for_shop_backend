@@ -5,7 +5,7 @@ const tokenSchema = new Schema({
     userID: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
-        ref: "User"//User schema id will be passed here from the fuction forgot password not from here this ref is just for showing the developer
+        ref: "Users"//User schema id will be passed here from the fuction forgot password not from here this ref is just for showing the developer
     },
     token: {
         type: String,

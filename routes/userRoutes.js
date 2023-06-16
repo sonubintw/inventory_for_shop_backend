@@ -12,6 +12,7 @@ const sendEmail = require("../utils/sendEmail")
 // function to create token
 const generateToken = (id) => {
     //arguments payload,secret key and expiry date
+    console.log("inside token generation function")
     return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" })
 }
 //register
@@ -274,7 +275,7 @@ router.post("/forgotpassword", async (req, res, next) => {
     let tokenExistChecking = await Token.findOne({ userID: user._id })//userID is the key name and value is user._id
 
     if (tokenExistChecking) {
-        console.log("delete token");
+        // console.log("delete token");
         await Token.deleteOne()
     }
     //delete token if it exists in db becoz the token expires after 30min but the user press 
@@ -345,7 +346,7 @@ router.put("/resetPassword/:resetToken", async (req, res, next) => {
 
     //hash token, then compare to token in db
     const hashedToken = crypto.createHash("sha256").update(req.params.resetToken).digest("hex")
-    console.log(hashedToken + " from db ")
+    // console.log(hashedToken + " from db ")
     //find token from db 
     const userTokenFromDb = await Token.findOne({
         token: hashedToken,
