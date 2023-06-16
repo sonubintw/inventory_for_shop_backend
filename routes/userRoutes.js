@@ -12,7 +12,7 @@ const sendEmail = require("../utils/sendEmail")
 // function to create token
 const generateToken = (id) => {
     //arguments payload,secret key and expiry date
-    console.log("inside token generation function")
+    // console.log("inside token generation function")
     return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" })
 }
 //register
