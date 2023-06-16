@@ -62,7 +62,8 @@ router.post("/register", async (req, res, next) => {
         httpOnly: true,
         expires: new Date(Date.now() + 1000 * 86400),//1 day
         // sameSite: "none",//frontEnd and backend can have different url
-        // secure: true
+        secure: true
+
     })
 
 
@@ -114,6 +115,7 @@ router.post("/login", async (req, res, next) => {
     res.cookie("token", token, {
         path: "/",
         httpOnly: true,
+        secure: true,
         expires: new Date(Date.now() + 1000 * 86400),//1 day
     })
 
