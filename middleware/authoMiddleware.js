@@ -6,7 +6,7 @@ const User = require("../models/userModel")
 const protect = async (req, res, next) => {
     try {
         const token = req.cookies.token
-        // console.log(req.body)
+        console.log(req.cookies)
         if (!token) {
             res.status(401)
             let error = new Error("Token expired")

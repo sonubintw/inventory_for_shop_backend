@@ -63,8 +63,7 @@ router.post("/register", async (req, res, next) => {
         expires: new Date(Date.now() + 1000 * 86400),//1 day
         sameSite: "none",//frontEnd and backend can have different url
         secure: true,
-        // domain: "localhost"
-        domain: ".vercel.app"
+        domain: "inventory-for-shop.vercel.app"
     })
 
 
@@ -118,8 +117,7 @@ router.post("/login", async (req, res, next) => {
         httpOnly: true,
         secure: true,
         sameSite: "none",
-        // domain: "localhost",
-        domain: ".vercel.app",
+        domain: ".inventory-for-shop.vercel.app",
         expires: new Date(Date.now() + 1000 * 86400),//1 day
     })
 
@@ -155,8 +153,7 @@ router.get("/logout", async (req, res) => {
         expires: new Date(0),
         sameSite: "none",
         secure: true,
-        // domain: "localhost"
-        domain: ".vercel.app"
+        domain: "inventory-for-shop.vercel.app"
     })
     return res.status(200).json({ message: "succesfully logged Out" })
 })

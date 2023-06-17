@@ -21,8 +21,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 app.use(cors({
-    // origin: ["http://localhost:3000"],
-    origin: true,//origin :"*" not working
+    origin: ["http://localhost:3000", "https://inventory-for-shop.vercel.app/"],
+    // origin: true,//origin :"*" not working
     credentials: true,
 
 }))
