@@ -58,12 +58,11 @@ router.post("/register", async (req, res, next) => {
     //send http-only cookie
     //search res.cookie
     res.cookie("token", token, {
-        path: "/",//by default its "/" no need to mention but still
+        path: "/",
         httpOnly: true,
-        expires: new Date(Date.now() + 1000 * 86400),//1 day
-        sameSite: "none",//frontEnd and backend can have different url
+        expires: new Date(Date.now() + 1000 * 86400), // 1 day
+        sameSite: "none",
         secure: true,
-        domain: ".onrender.com"
     })
 
 
@@ -115,10 +114,9 @@ router.post("/login", async (req, res, next) => {
     res.cookie("token", token, {
         path: "/",
         httpOnly: true,
-        secure: true,
+        expires: new Date(Date.now() + 1000 * 86400), // 1 day
         sameSite: "none",
-        domain: ".onrender.com",
-        expires: new Date(Date.now() + 1000 * 86400),//1 day
+        secure: true,
     })
 
 
@@ -150,10 +148,9 @@ router.get("/logout", async (req, res) => {
     res.cookie("token", "", {
         path: "/",
         httpOnly: true,
-        expires: new Date(0),
+        expires: new Date(Date.now() + 1000 * 86400), // 1 day
         sameSite: "none",
         secure: true,
-        domain: ".onrender.com"
     })
     return res.status(200).json({ message: "succesfully logged Out" })
 })
