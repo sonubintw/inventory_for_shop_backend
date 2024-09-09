@@ -17,7 +17,7 @@ const generateToken = (id) => {
 }
 //register
 router.post("/register", async (req, res, next) => {
-    const { name, email, password, image, bio } = req.body
+    const { name, email, password, } = req.body
 
 
 
