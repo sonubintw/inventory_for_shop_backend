@@ -5,8 +5,8 @@ const User = require("../models/userModel")
 
 const protect = async (req, res, next) => {
     try {
-        const token = req.cookies.token
-        console.log(req.cookies)
+        const token = req.cookies.token || req.headers.authorization
+        // console.log(token)
         if (!token) {
             res.status(401)
             let error = new Error("Token expired")
@@ -41,9 +41,9 @@ const protect = async (req, res, next) => {
         // console.log(req)
         next()
 
-    } catch (err) {
+    } catch (error) {
         res.status(401)
-        err = new Error("Not authorized, please login")
+        let err = new Error("Not authorized, please login")
         return next(err)
     }
 }

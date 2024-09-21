@@ -201,7 +201,7 @@ router.get("/loggedinstatus", async (req, res) => {
 //updateUser exclude password
 router.patch("/updateuser", protect, async (req, res, next) => {
     const user = await User.findById(req.user._id)
-    const { _id, name, email, image, phoneNo, bio } = user
+    const { name, email, image, phoneNo, bio } = user
 
     const filter = user._id
     const toUpdate = {

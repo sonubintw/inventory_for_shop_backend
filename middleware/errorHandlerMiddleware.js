@@ -1,7 +1,7 @@
 const erroHandler = (err, req, res, next) => {
 
-    // const statusCode = res.statusCode ? res.statusCode : 500
-    res.status(400).json({
+    const statusCode = res.statusCode ?? 400
+    res.status(statusCode).json({
         message: err.message,//err.message and err.stack is already present in express error inbuit handler
         stack: err.stack
     })
